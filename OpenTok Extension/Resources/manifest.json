@@ -19,8 +19,7 @@
         "js": ["content.js"],
         "css": ["content.css"],
         "matches": [
-            "*://tiktok.com/*",
-            "*://*.tiktok.com/*"
+            "https://*.tiktok.com/*"
         ],
         "run_at": "document_start"
     }],
@@ -37,6 +36,6 @@
     },
 
     "permissions": [
-        "tabs"
+        "https://*.tiktok.com/*"
     ]
 }
