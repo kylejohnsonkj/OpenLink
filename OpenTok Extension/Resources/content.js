@@ -74,6 +74,9 @@ function maybeRedirect() {
         location.replace(cleanUrl);
     } else {
         runWhenDomReady(() => {
+            // Only pass if path matches and there are no query params
+            if (!/^\/@[^/]*\/(video|photo)\/\d+$/.test(location.pathname) || location.search) return;
+            
             // Remove smart app banner and automatically close dialog boxes
             document.querySelector('meta[name="apple-itunes-app"]')?.remove();
             document.querySelector('button[class*="close-button"]')?.click();
