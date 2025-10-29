@@ -56,7 +56,7 @@ struct VerifySetupListView: View {
             } header: {
                 Text("\nVerify setup")
             } footer: {
-                Text("If issues persist, reach out for support at kylejohnsonapps.com/contact")
+                Text("If issues persist, reach out for support at [kylejohnsonapps.com/contact](https://kylejohnsonapps.com/contact)")
             }
         }
         .presentationDetents([.medium])

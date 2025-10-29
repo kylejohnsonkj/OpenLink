@@ -86,7 +86,7 @@ struct HowToListView: View {
             .padding(.bottom, 12)
             
             ListEntry(
-                Text("Tap \"Always Allow on This Website\""),
+                Text("Tap OpenTok, selecting \"Always Allow\" for tiktok.com"),
                 image: "4.circle"
             )
             
