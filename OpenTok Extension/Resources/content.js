@@ -1,11 +1,8 @@
 const url = new URL(location.href);
 
 // ROUTE 1: Redirect TikTok videos and photo slideshows to playable links
-const match = url.pathname.match(/^\/@[^/]*\/(video|photo)\/(\d+)/);
-if (match) {
-    const [, type, id] = match;
-    const username = url.pathname.split("/")[1]; // e.g. "@username" or sometimes just "@"
-    const newUrl = `https://www.tiktok.com/${username}/${type}/${id}?_r=1`; // _r=1 embeds comments below video
+if (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
+    const newUrl = `${url.origin}${url.pathname}?_r=1`; // _r=1 embeds comments below video
     
     if (newUrl !== location.href && location.search) {
         // Redirect!
@@ -16,16 +13,17 @@ if (match) {
     }
 }
 
-// ROUTE 2: Redirect TikTok discover pages to play the primary video
+// ROUTE 2: Redirect TikTok discover pages to play the hero video (if present)
 if (/^\/discover\//.test(url.pathname)) {
     const observer = new MutationObserver(() => {
         const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
         if (link) {
-            observer.disconnect();
-            window.location.replace(link.href);
+            const videoUrl = new URL(link.href);
+            const newUrl = `${videoUrl.origin}${videoUrl.pathname}?_r=1`; // embed comments again
+            location.replace(newUrl);
         }
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document, { childList: true, subtree: true });
 }
 
 function modifyPage() {
