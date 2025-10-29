@@ -4,7 +4,7 @@ const url = new URL(location.href);
 if (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
     const newUrl = url.href.split('?')[0] + '?_r=1'; // _r=1 embeds comments below video
     
-    if (newUrl !== url.href && url.search) {
+    if (newUrl !== url.href) {
         // Redirect!
         location.replace(newUrl);
     } else {
@@ -13,12 +13,12 @@ if (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
     }
 }
 
-// ROUTE 2: Redirect TikTok discover pages to the hero video link (if present)
+// ROUTE 2: Redirect TikTok discover pages to hero video link (if present)
 if (/^\/discover\//.test(url.pathname)) {
     const observer = new MutationObserver(() => {
         const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
         if (link) {
-            const newUrl = link.href.split('?')[0] + '?_r=1'; // embed comments for this route too
+            const newUrl = link.href.split('?')[0] + '?_r=1';
             location.replace(newUrl);
         }
     });
@@ -26,11 +26,11 @@ if (/^\/discover\//.test(url.pathname)) {
 }
 
 function modifyPage() {
-    // Force the "Watch again" button to reload the video instead of redirecting to App Store (second tap only)
+    // Force "Watch again" button to always reload the video and not redirect to the App Store
     fixWatchAgainButton();
     
     const observer = new MutationObserver(() => {
-        // Remove smart app banner and automatically close dialog boxes
+        // Remove smart app banner and automatically close popups
         document.querySelector('meta[name="apple-itunes-app"]')?.remove();
         document.querySelector('button[class*="close-button"]')?.click();
         document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
@@ -50,7 +50,7 @@ function fixWatchAgainButton() {
         
         if (didWatchAgain) {
             event.stopPropagation();
-            window.location.reload();
+            location.reload();
         } else {
             didWatchAgain = true;
         }
@@ -59,8 +59,8 @@ function fixWatchAgainButton() {
 
 function insertMessageUnderWatchAgain() {
     // Exclude from setup video
-    const setupVideoId = "/video/6876424179084709126";
-    if (window.location.pathname.includes(setupVideoId)) return;
+    const setupVideoPath = "/video/6876424179084709126";
+    if (location.pathname.includes(setupVideoPath)) return;
     
     // Exclude if user has already reviewed the current version
     const currentVersion = chrome.runtime.getManifest().version;
