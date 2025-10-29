@@ -2,9 +2,9 @@ const url = new URL(location.href);
 
 // ROUTE 1: Redirect TikTok videos and photo slideshows to playable links
 if (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
-    const newUrl = `${url.origin}${url.pathname}?_r=1`; // _r=1 embeds comments below video
+    const newUrl = url.href.split('?')[0] + '?_r=1'; // _r=1 embeds comments below video
     
-    if (newUrl !== location.href && location.search) {
+    if (newUrl !== url.href && url.search) {
         // Redirect!
         location.replace(newUrl);
     } else {
@@ -13,13 +13,12 @@ if (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
     }
 }
 
-// ROUTE 2: Redirect TikTok discover pages to play the hero video (if present)
+// ROUTE 2: Redirect TikTok discover pages to the hero video link (if present)
 if (/^\/discover\//.test(url.pathname)) {
     const observer = new MutationObserver(() => {
         const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
         if (link) {
-            const videoUrl = new URL(link.href);
-            const newUrl = `${videoUrl.origin}${videoUrl.pathname}?_r=1`; // embed comments again
+            const newUrl = link.href.split('?')[0] + '?_r=1'; // embed comments for this route too
             location.replace(newUrl);
         }
     });
@@ -27,7 +26,7 @@ if (/^\/discover\//.test(url.pathname)) {
 }
 
 function modifyPage() {
-    // Force the "Watch again" button to reload the video on second attempt (instead of redirecting to App Store)
+    // Force the "Watch again" button to reload the video instead of redirecting to App Store (second tap only)
     fixWatchAgainButton();
     
     const observer = new MutationObserver(() => {
