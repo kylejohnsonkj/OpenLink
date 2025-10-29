@@ -1,155 +1,49 @@
-// OpenTok Extension
-// Created by Kyle Johnson
+const url = new URL(location.href);
 
-/** -----------------------------
- *  URL Redirection
- * ------------------------------ */
-
-let lastUrl = location.href;
-
-(function() {
-    // Watch History API for React Router navigation
-    for (const method of ["pushState", "replaceState"]) {
-        const original = history[method];
-        history[method] = function (...args) {
-            const result = original.apply(this, args);
-            window.dispatchEvent(new Event("locationchange"));
-            return result;
-        };
-    }
-
-    window.addEventListener("popstate", onUrlChange);
-    window.addEventListener("locationchange", onUrlChange);
-
-    // React/TikTok fallback for silent URL rewrites
-    new MutationObserver(onUrlChange).observe(document, { childList: true, subtree: true });
-
-    // Run once immediately
-    maybeRedirect();
-})();
-
-function onUrlChange() {
-    if (location.href !== lastUrl) {
-        lastUrl = location.href;
-        maybeRedirect();
-    }
-}
-
-function cleanTikTokUrl(urlString) {
-    try {
-        const url = new URL(urlString);
-        
-        // Only clean video and photo slideshow links
-        const match = url.pathname.match(/^\/@[^/]*\/(video|photo)\/(\d+)/);
-        if (match) {
-            const [, type, id] = match;
-            const username = url.pathname.split("/")[1]; // e.g. "@username" or "@"
-            
-            return `https://www.tiktok.com/${username}/${type}/${id}`;
-        }
-        
-        // Redirect to the first video on the Discover page
-        if (/^\/discover\//.test(url.pathname)) {
-            const observer = new MutationObserver(() => {
-                const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
-                if (link) {
-                    observer.disconnect();
-                    window.location.replace(link.href);
-                }
-            });
-            observer.observe(document, { childList: true, subtree: true });
-            return null; // Let the observer handle the redirect
-        }
-        
-        return null
-    } catch {
-        return null;
-    }
-}
-
-function maybeRedirect() {
-    const cleanUrl = cleanTikTokUrl(location.href);
+// ROUTE 1: Redirect TikTok videos and photo slideshows to playable links
+const match = url.pathname.match(/^\/@[^/]*\/(video|photo)\/(\d+)/);
+if (match) {
+    const [, type, id] = match;
+    const username = url.pathname.split("/")[1]; // e.g. "@username" or sometimes just "@"
+    const newUrl = `https://www.tiktok.com/${username}/${type}/${id}?_r=1`; // _r=1 embeds comments below video
     
-    if (cleanUrl && cleanUrl !== location.href) {
-        location.replace(cleanUrl);
+    if (newUrl !== location.href && location.search) {
+        // Redirect!
+        location.replace(newUrl);
     } else {
-        runWhenDomReady(() => {
-            // Only pass if path matches and there are no query params
-            if (!/^\/@[^/]*\/(video|photo)\/\d+$/.test(location.pathname) || location.search) return;
-            
-            // Remove smart app banner and automatically close dialog boxes
-            document.querySelector('meta[name="apple-itunes-app"]')?.remove();
-            document.querySelector('button[class*="close-button"]')?.click();
-            document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
-            
-            // Relocate comments under the video
-            relocateComments();
-            
-            // Ensure the "Watch again" button always reloads the video
-            fixWatchAgainButton();
-            
-            // Attempt to insert casual review prompt
-            insertMessageUnderWatchAgain();
-        });
+        // URL has been redirected. We can now modify the DOM.
+        modifyPage();
     }
 }
 
-function runWhenDomReady(callback) {
-    // Wait until the base DOM exists
-    const startObserver = () => {
-        const appNode = document.getElementById("app") || document.body;
-        if (!appNode) return;
-        
-        const observer = new MutationObserver(() => {
-            callback(); // run whenever DOM changes
-        });
-        
-        observer.observe(appNode, { childList: true, subtree: true });
-        
-        // Run once immediately in case content is already present
-        callback();
-    };
-    
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-        startObserver();
-    } else {
-        window.addEventListener("DOMContentLoaded", startObserver, { once: true });
-    }
+// ROUTE 2: Redirect TikTok discover pages to play the primary video
+if (/^\/discover\//.test(url.pathname)) {
+    const observer = new MutationObserver(() => {
+        const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
+        if (link) {
+            observer.disconnect();
+            window.location.replace(link.href);
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 }
 
-/** ------------------------------
- *  Comments Below Video
- * ------------------------------ */
-
-function relocateComments() {
-    const commentsId = "relocated-comments";
+function modifyPage() {
+    // Force the "Watch again" button to reload the video on second attempt (instead of redirecting to App Store)
+    fixWatchAgainButton();
     
-    // Only do once
-    if (document.getElementById(commentsId)) return;
+    const observer = new MutationObserver(() => {
+        // Remove smart app banner and automatically close dialog boxes
+        document.querySelector('meta[name="apple-itunes-app"]')?.remove();
+        document.querySelector('button[class*="close-button"]')?.click();
+        document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
+        
+        // Attempt to insert casual review prompt
+        insertMessageUnderWatchAgain();
+    });
     
-    // Open the comments modal
-    document.querySelector('div[data-e2e="play-side-comment"]')?.click();
-    
-    const layoutBox = document.querySelector('div[class*="layout-box"]');
-    const commentsHeader = document.querySelector('div[class*="DivHeaderWrapper"]');
-    const comments = document.querySelector('div[class*="DivCommentListContainer"]');
-    
-    // Wait until actual comments are loaded (not skeletons)
-    const hasRealComments = comments?.querySelector('div[class*="DivCommentItemContainer"]');
-    if (!layoutBox || !commentsHeader || !comments || !hasRealComments) return;
-    
-    // Relocate the comments below the video
-    commentsHeader.id = commentsId;
-    layoutBox.appendChild(commentsHeader);
-    layoutBox.appendChild(comments);
-    
-    // Dismiss modal to allow scrolling
-    document.querySelector('div[class*="DivCloseWrapper"]')?.click();
+    observer.observe(document, { childList: true, subtree: true });
 }
-
-/** ------------------------------
- *  Watch Again Button
- * ------------------------------ */
 
 function fixWatchAgainButton() {
     let didWatchAgain = false;
@@ -165,10 +59,6 @@ function fixWatchAgainButton() {
         }
     }, true);
 }
-
-/** ------------------------------
- *  Review Prompt Message
- * ------------------------------ */
 
 function insertMessageUnderWatchAgain() {
     // Exclude from setup video
