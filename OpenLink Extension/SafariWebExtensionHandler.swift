@@ -1,6 +1,6 @@
 //
 //  SafariWebExtensionHandler.swift
-//  OpenTok Extension
+//  OpenLink Extension
 //
 //  Created by Kyle Johnson on 9/13/24.
 //

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  OpenTok
+//  OpenLink
 //
 //  Created by Kyle Johnson on 9/13/24.
 //
@@ -33,10 +33,10 @@ struct HeaderView: View {
                 .padding(.trailing)
             
             VStack(alignment: .leading) {
-                Text("OpenTok")
+                Text("OpenLink")
                     .font(.title)
                     .bold()
-                Text("A Safari extension that lets you watch shared TikToks in your browser")
+                Text("A Safari extension that lets you watch shared videos in your browser")
                     .font(.footnote)
                     .bold()
                     .foregroundStyle(.secondary)
@@ -80,13 +80,13 @@ struct HowToListView: View {
             .padding(.vertical, 12)
             
             ListEntry(
-                Text("Enable the OpenTok extension"),
+                Text("Enable the OpenLink extension"),
                 image: "3.circle"
             )
             .padding(.bottom, 12)
             
             ListEntry(
-                Text("Tap OpenTok, selecting \"Always Allow\" for tiktok.com"),
+                Text("Tap OpenLink, selecting \"Always Allow\" for tiktok.com"),
                 image: "4.circle"
             )
             
@@ -101,7 +101,7 @@ struct HowToListView: View {
             .frame(maxWidth: .infinity)
             
             ListEntry(
-                Text("TikToks still not playing?"),
+                Text("Videos still not playing?"),
                 image: "questionmark.circle"
             )
             .padding(.bottom, 8)

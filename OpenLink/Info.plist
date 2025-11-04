@@ -11,7 +11,7 @@
 			<string>com.kylejohnson.OpenTok</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>opentok</string>
+				<string>openlink</string>
 			</array>
 		</dict>
 	</array>

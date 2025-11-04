@@ -1,6 +1,6 @@
 //
 //  VerifySetupListView.swift
-//  OpenTok
+//  OpenLink
 //
 //  Created by Kyle Johnson on 9/21/24.
 //
@@ -34,7 +34,7 @@ struct VerifySetupListView: View {
                     color: .teal
                 )
                 ListEntry(
-                    Text("Select **OpenTok**"),
+                    Text("Select **OpenLink**"),
                     image: "bolt.horizontal",
                     color: .pink
                 )
