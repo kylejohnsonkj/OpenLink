@@ -59,7 +59,7 @@ struct HowToListView: View {
                 .padding(.top)
             
             ListEntry(
-                Text("Open a shared TikTok video"),
+                Text("Open a shared video link"),
                 image: "1.circle"
             )
             .padding(.top, 12)
@@ -86,7 +86,7 @@ struct HowToListView: View {
             .padding(.bottom, 12)
             
             ListEntry(
-                Text("Tap OpenClip, selecting \"Always Allow\" for tiktok.com"),
+                Text("Tap OpenClip, selecting \"Always Allow\""),
                 image: "4.circle"
             )
             

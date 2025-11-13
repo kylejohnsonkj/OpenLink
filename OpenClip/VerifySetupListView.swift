@@ -48,15 +48,10 @@ struct VerifySetupListView: View {
                     image: "checkmark.circle",
                     color: .orange
                 )
-                ListEntry(
-                    Text("Set **Other Websites** to Ask"),
-                    image: "checkmark.circle",
-                    color: .orange
-                )
             } header: {
                 Text("\nVerify setup")
             } footer: {
-                Text("If issues persist, reach out for support at [kylejohnsonapps.com/contact](https://kylejohnsonapps.com/contact)")
+                Text("Additional support at [kylejohnsonapps.com/contact](https://kylejohnsonapps.com/contact)")
             }
         }
         .presentationDetents([.medium])
