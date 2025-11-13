@@ -59,7 +59,7 @@ struct HowToListView: View {
                 .padding(.top)
             
             ListEntry(
-                Text("Open a shared video link"),
+                Text("Open a shared TikTok video"),
                 image: "1.circle"
             )
             .padding(.top, 12)
@@ -86,7 +86,7 @@ struct HowToListView: View {
             .padding(.bottom, 12)
             
             ListEntry(
-                Text("Tap OpenClip, selecting \"Always Allow\""),
+                Text("Tap OpenClip and select \"Always Allow\""),
                 image: "4.circle"
             )
             
@@ -113,6 +113,12 @@ struct HowToListView: View {
             .tint(.buttonGray)
             .padding(.leading, buttonInset)
             .padding(.bottom)
+            
+            Text("TikTok® is a registered trademark of ByteDance Ltd. OpenClip is not affiliated with or endorsed by TikTok or ByteDance Ltd. All videos are hosted on [tiktok.com](https://www.tiktok.com).")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
         }
         .padding(.horizontal)
         .background(.tableViewBackground)
