@@ -1,6 +1,6 @@
 //
 //  VerifySetupListView.swift
-//  OpenLink
+//  OpenClip
 //
 //  Created by Kyle Johnson on 9/21/24.
 //
@@ -34,7 +34,7 @@ struct VerifySetupListView: View {
                     color: .teal
                 )
                 ListEntry(
-                    Text("Select **OpenLink**"),
+                    Text("Select **OpenClip**"),
                     image: "bolt.horizontal",
                     color: .pink
                 )

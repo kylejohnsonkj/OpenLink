@@ -1,6 +1,6 @@
 //
-//  OpenLinkApp.swift
-//  OpenLink
+//  OpenClipApp.swift
+//  OpenClip
 //
 //  Created by Kyle Johnson on 9/13/24.
 //
@@ -9,7 +9,7 @@ import StoreKit
 import SwiftUI
 
 @main
-struct OpenLinkApp: App {
+struct OpenClipApp: App {
     var body: some Scene {
         WindowGroup {
             ContentScene()
@@ -49,7 +49,7 @@ struct ReviewSheetView: View {
         VStack(alignment: .leading) {
             HStack {
                 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
-                Text("OpenLink v\(appVersion)")
+                Text("OpenClip v\(appVersion)")
                     .font(.headline)
                 Spacer()
                 Button(action: {
@@ -63,7 +63,7 @@ struct ReviewSheetView: View {
             .padding(.vertical)
             .padding(.horizontal, 20)
             
-            Text("Leaving a rating or [review](https://itunes.apple.com/app/id6708240044?action=write-review) helps support development and makes it easier for others to discover OpenLink on the App Store. 🙂")
+            Text("Leaving a rating or [review](https://itunes.apple.com/app/id6708240044?action=write-review) helps support development and makes it easier for others to discover OpenClip on the App Store. 🙂")
                 .font(.callout)
                 .padding(.horizontal, 20)
         }
