@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  OpenLink
+//  OpenClip
 //
 //  Created by Kyle Johnson on 9/13/24.
 //
@@ -33,7 +33,7 @@ struct HeaderView: View {
                 .padding(.trailing)
             
             VStack(alignment: .leading) {
-                Text("OpenLink")
+                Text("OpenClip")
                     .font(.title)
                     .bold()
                 Text("A Safari extension that lets you watch shared videos in your browser")
@@ -80,13 +80,13 @@ struct HowToListView: View {
             .padding(.vertical, 12)
             
             ListEntry(
-                Text("Enable the OpenLink extension"),
+                Text("Enable the OpenClip extension"),
                 image: "3.circle"
             )
             .padding(.bottom, 12)
             
             ListEntry(
-                Text("Tap OpenLink, selecting \"Always Allow\" for tiktok.com"),
+                Text("Tap OpenClip, selecting \"Always Allow\" for tiktok.com"),
                 image: "4.circle"
             )
             

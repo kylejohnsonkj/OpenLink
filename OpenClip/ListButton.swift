@@ -1,6 +1,6 @@
 //
 //  ListButton.swift
-//  OpenLink
+//  OpenClip
 //
 //  Created by Kyle Johnson on 9/21/24.
 //

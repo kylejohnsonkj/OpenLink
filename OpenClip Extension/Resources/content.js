@@ -64,10 +64,10 @@ function insertMessageUnderWatchAgain() {
     
     // Exclude if user has already reviewed the current version
     const currentVersion = chrome.runtime.getManifest().version;
-    if (currentVersion === localStorage.getItem("OpenLink-lastReviewedVersion")) return;
+    if (currentVersion === localStorage.getItem("OpenClip-lastReviewedVersion")) return;
     
     // Do not reinsert if message is already present
-    const messageId = "openlink-message";
+    const messageId = "openclip-message";
     if (document.getElementById(messageId)) return;
     
     // Do not insert if 'Watch again' container cannot be found
@@ -100,19 +100,19 @@ function createMessageElement(messageId) {
 
 function createReviewLink() {
     const link = document.createElement("a");
-    link.href = "openlink://review";
+    link.href = "openclip://review";
     Object.assign(link.style, { color: "white", textDecoration: "none" });
     
     const plainText = document.createElement("span");
     const underlinedText = document.createElement("span");
     underlinedText.style.textDecoration = "underline";
     
-    plainText.textContent = "Enjoying OpenLink?";
+    plainText.textContent = "Enjoying OpenClip?";
     underlinedText.textContent = "Help spread the word!";
     link.append(plainText, " ", underlinedText);
     
     link.addEventListener("click", () => {
-        localStorage.setItem("OpenLink-lastReviewedVersion", chrome.runtime.getManifest().version);
+        localStorage.setItem("OpenClip-lastReviewedVersion", chrome.runtime.getManifest().version);
         plainText.textContent = "Thank you! ❤️";
         underlinedText.textContent = "";
     });

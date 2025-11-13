@@ -1,6 +1,6 @@
 //
 //  SafariWebExtensionHandler.swift
-//  OpenLink Extension
+//  OpenClip Extension
 //
 //  Created by Kyle Johnson on 9/13/24.
 //

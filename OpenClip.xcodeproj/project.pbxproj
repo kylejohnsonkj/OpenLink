@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E50D66382C94DE4A00906236 /* OpenLink Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E50D66202C94DE4A00906236 /* OpenLink Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E50D66382C94DE4A00906236 /* OpenClip Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E50D66202C94DE4A00906236 /* OpenClip Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				E50D66382C94DE4A00906236 /* OpenLink Extension.appex in Embed Foundation Extensions */,
+				E50D66382C94DE4A00906236 /* OpenClip Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,46 +35,46 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E50D660B2C94DDD900906236 /* OpenLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E50D66202C94DE4A00906236 /* OpenLink Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OpenLink Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50D660B2C94DDD900906236 /* OpenClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50D66202C94DE4A00906236 /* OpenClip Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OpenClip Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E5079F322CA06DBC00C37E8C /* Exceptions for "OpenLink" folder in "OpenLink" target */ = {
+		E5079F322CA06DBC00C37E8C /* Exceptions for "OpenClip" folder in "OpenClip" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = E50D660A2C94DDD900906236 /* OpenLink */;
+			target = E50D660A2C94DDD900906236 /* OpenClip */;
 		};
-		E50D66392C94DE4A00906236 /* Exceptions for "OpenLink Extension" folder in "OpenLink Extension" target */ = {
+		E50D66392C94DE4A00906236 /* Exceptions for "OpenClip Extension" folder in "OpenClip Extension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = E50D661F2C94DE4A00906236 /* OpenLink Extension */;
+			target = E50D661F2C94DE4A00906236 /* OpenClip Extension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E50D660D2C94DDD900906236 /* OpenLink */ = {
+		E50D660D2C94DDD900906236 /* OpenClip */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				E5079F322CA06DBC00C37E8C /* Exceptions for "OpenLink" folder in "OpenLink" target */,
+				E5079F322CA06DBC00C37E8C /* Exceptions for "OpenClip" folder in "OpenClip" target */,
 			);
-			path = OpenLink;
+			path = OpenClip;
 			sourceTree = "<group>";
 		};
-		E50D66212C94DE4A00906236 /* OpenLink Extension */ = {
+		E50D66212C94DE4A00906236 /* OpenClip Extension */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				E50D66392C94DE4A00906236 /* Exceptions for "OpenLink Extension" folder in "OpenLink Extension" target */,
+				E50D66392C94DE4A00906236 /* Exceptions for "OpenClip Extension" folder in "OpenClip Extension" target */,
 			);
 			explicitFolders = (
 				Resources/_locales,
 				Resources/images,
 			);
-			path = "OpenLink Extension";
+			path = "OpenClip Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -100,8 +100,8 @@
 		E50D66022C94DDD900906236 = {
 			isa = PBXGroup;
 			children = (
-				E50D660D2C94DDD900906236 /* OpenLink */,
-				E50D66212C94DE4A00906236 /* OpenLink Extension */,
+				E50D660D2C94DDD900906236 /* OpenClip */,
+				E50D66212C94DE4A00906236 /* OpenClip Extension */,
 				E50D660C2C94DDD900906236 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,8 +109,8 @@
 		E50D660C2C94DDD900906236 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E50D660B2C94DDD900906236 /* OpenLink.app */,
-				E50D66202C94DE4A00906236 /* OpenLink Extension.appex */,
+				E50D660B2C94DDD900906236 /* OpenClip.app */,
+				E50D66202C94DE4A00906236 /* OpenClip Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E50D660A2C94DDD900906236 /* OpenLink */ = {
+		E50D660A2C94DDD900906236 /* OpenClip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E50D66192C94DDDA00906236 /* Build configuration list for PBXNativeTarget "OpenLink" */;
+			buildConfigurationList = E50D66192C94DDDA00906236 /* Build configuration list for PBXNativeTarget "OpenClip" */;
 			buildPhases = (
 				E50D66072C94DDD900906236 /* Sources */,
 				E50D66082C94DDD900906236 /* Frameworks */,
@@ -133,18 +133,18 @@
 				E50D66372C94DE4A00906236 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				E50D660D2C94DDD900906236 /* OpenLink */,
+				E50D660D2C94DDD900906236 /* OpenClip */,
 			);
-			name = OpenLink;
+			name = OpenClip;
 			packageProductDependencies = (
 			);
 			productName = OpenTok;
-			productReference = E50D660B2C94DDD900906236 /* OpenLink.app */;
+			productReference = E50D660B2C94DDD900906236 /* OpenClip.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E50D661F2C94DE4A00906236 /* OpenLink Extension */ = {
+		E50D661F2C94DE4A00906236 /* OpenClip Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E50D663A2C94DE4A00906236 /* Build configuration list for PBXNativeTarget "OpenLink Extension" */;
+			buildConfigurationList = E50D663A2C94DE4A00906236 /* Build configuration list for PBXNativeTarget "OpenClip Extension" */;
 			buildPhases = (
 				E50D661C2C94DE4A00906236 /* Sources */,
 				E50D661D2C94DE4A00906236 /* Frameworks */,
@@ -155,13 +155,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E50D66212C94DE4A00906236 /* OpenLink Extension */,
+				E50D66212C94DE4A00906236 /* OpenClip Extension */,
 			);
-			name = "OpenLink Extension";
+			name = "OpenClip Extension";
 			packageProductDependencies = (
 			);
 			productName = "OpenTok Extension";
-			productReference = E50D66202C94DE4A00906236 /* OpenLink Extension.appex */;
+			productReference = E50D66202C94DE4A00906236 /* OpenClip Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +182,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E50D66062C94DDD900906236 /* Build configuration list for PBXProject "OpenLink" */;
+			buildConfigurationList = E50D66062C94DDD900906236 /* Build configuration list for PBXProject "OpenClip" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -196,8 +196,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E50D660A2C94DDD900906236 /* OpenLink */,
-				E50D661F2C94DE4A00906236 /* OpenLink Extension */,
+				E50D660A2C94DDD900906236 /* OpenClip */,
+				E50D661F2C94DE4A00906236 /* OpenClip Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -239,7 +239,7 @@
 /* Begin PBXTargetDependency section */
 		E50D66372C94DE4A00906236 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E50D661F2C94DE4A00906236 /* OpenLink Extension */;
+			target = E50D661F2C94DE4A00906236 /* OpenClip Extension */;
 			targetProxy = E50D66362C94DE4A00906236 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -505,7 +505,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E50D66062C94DDD900906236 /* Build configuration list for PBXProject "OpenLink" */ = {
+		E50D66062C94DDD900906236 /* Build configuration list for PBXProject "OpenClip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E50D66172C94DDDA00906236 /* Debug */,
@@ -514,7 +514,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E50D66192C94DDDA00906236 /* Build configuration list for PBXNativeTarget "OpenLink" */ = {
+		E50D66192C94DDDA00906236 /* Build configuration list for PBXNativeTarget "OpenClip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E50D661A2C94DDDA00906236 /* Debug */,
@@ -523,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E50D663A2C94DE4A00906236 /* Build configuration list for PBXNativeTarget "OpenLink Extension" */ = {
+		E50D663A2C94DE4A00906236 /* Build configuration list for PBXNativeTarget "OpenClip Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E50D663B2C94DE4A00906236 /* Debug */,
