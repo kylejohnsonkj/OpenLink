@@ -1,12 +1,12 @@
-<img align="left" width="64" height="64" src="icon.png" alt="OpenTok icon">
+<img align="left" width="64" height="64" src="icon.png" alt="OpenClip icon">
 
 # OpenClip
 
-OpenClip for Safari is a browser extension that lets you open shared social media videos in your browser.
+OpenClip for Safari is a browser extension that lets you watch shared social videos in your browser.
 
 <a href="https://apps.apple.com/us/app/openclip-for-safari/id6708240044">![app store](app_store.svg)</a>
 
-By removing unnecessary tracking details from shared links, OpenClip helps you watch videos from friends and family without leaving your browser. No social media apps or accounts required! The extension also cleans up pages for a distraction-free viewing experience.
+By removing unnecessary tracking details from shared links, OpenClip helps you watch videos from friends and family without having to download social media apps or create accounts. The extension also cleans up video pages for a distraction-free viewing experience.
 
 <img width="594" src="screenshots.png">
 

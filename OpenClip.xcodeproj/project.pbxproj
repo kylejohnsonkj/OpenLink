@@ -16,7 +16,7 @@
 			containerPortal = E50D66032C94DDD900906236 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E50D661F2C94DE4A00906236;
-			remoteInfo = "OpenTok Extension";
+			remoteInfo = "OpenClip Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -138,7 +138,7 @@
 			name = OpenClip;
 			packageProductDependencies = (
 			);
-			productName = OpenTok;
+			productName = OpenClip;
 			productReference = E50D660B2C94DDD900906236 /* OpenClip.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -160,7 +160,7 @@
 			name = "OpenClip Extension";
 			packageProductDependencies = (
 			);
-			productName = "OpenTok Extension";
+			productName = "OpenClip Extension";
 			productReference = E50D66202C94DE4A00906236 /* OpenClip Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
@@ -442,7 +442,7 @@
 				DEVELOPMENT_TEAM = GP799FVH94;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "OpenClip Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "OpenTok Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "OpenClip Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -476,7 +476,7 @@
 				DEVELOPMENT_TEAM = GP799FVH94;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "OpenClip Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "OpenTok Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "OpenClip Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -57,6 +57,21 @@ final class VideoExplainerView: UIView {
         
         addShadowToRestartButton()
         addSubview(restartButton)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appBecameActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+    }
+    
+    @objc private func appBecameActive() {
+        player?.play()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("\(#file) does not implement coder.") }
