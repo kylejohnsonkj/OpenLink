@@ -1,3 +1,5 @@
+/* START TIKTOK RULES */
+
 div[class*="DivFixedWrapper"], /* top bar and bottom "get the full experience" banner */
 div[class*="DivVideoCaption"] > div[class*="matrix-smart-wrapper"], /* bar beneath caption */
 div[class*="DivCamera"], /* watch on tiktok */
@@ -5,7 +7,6 @@ div[class*="tux-base-dialog"], /* popup */
 div[class*="DivSwiperParent"], /* recommended videos */
 div[class*="DivSeeMore"], /* see more comments */
 div[class*="DivFinishTip"], /* scroll up to view more */
-div[class*="DivTuxBarContainer"], /* today's top videos */
 div[class*="DivBottomButtonSection"], /* download tiktok button */
 div[class*="DivHalfwayPopupMask"], /* fake alert */
 div[class*="DivErrorContainer"], /* something went wrong */
@@ -15,7 +16,6 @@ div[class*="DivRecommendListTitle"], /* today's top videos */
 div[class*="DivFloatButtonWrapper"], /* discover more button */
 div[class*="DivModalContainer"], /* get the full app experience */
 div[class*="DivCommentCtaContainer"], /* open tiktok to comment button */
-div[class*="DivContainer"], /* mask and sheet parent view */
 div[class*="DivMask"], /* channel mask */
 div[class*="DivBodyWrapper"], /* channel sheet */
 div[class*="DivCtaGuideWrapper"], /* channel footer */
@@ -24,43 +24,64 @@ div[class*="DivBannerInVideo"], /* open in app top banner */
 div[class*="DivShopBannerContainer"], /* banner ad */
 div[class*="DivShopBannerWrapper"], /* banner ad wrapper */
 div[class*="DivBannerContainer"], /* banner ad container */
-a[data-e2e="shop-float-widget"], /* floating ad */
-footer[data-e2e*="playlist-banner"], /* playlist banner */
+div[class*="DivTuxBarContainer"], /* recommended videos header */
 div[id*="app-skeleton"], /* skeleton state */
-ul[class*="UlRList"] { /* recommended videos */
-    display: none;
+ul[class*="UlRList"], /* recommended videos */
+a[data-e2e="shop-float-widget"], /* floating ad */
+footer[data-e2e*="playlist-banner"] { /* playlist banner */
+    display: none !important;
 }
 
 div[class*="DivUnmuteButton"] {
     top: 16px; /* move unmute now that top bar is hidden */
 }
 
+div[class*="DivContainer"], /* channel page, excluding header */
 div[class*="DivInfoSection"], /* video tappable region */
-div[class*="DivCommentListContainer"], /* video comments */
-div[class*="matrix-smart-wrapper"]:has(div[class*="DivFavor"]), /* channel heart button */
-div[class*="matrix-smart-wrapper"]:has(div[class*="DivComment"]) { /* channel comment button */
+div[class*="DivCommentListContainer"] { /* video comments */
     pointer-events: none; /* prevent redirects to app store */
 }
 
-div[data-e2e*="caption-icon"], /* allow tap for captions */
-article[class*="ArticleLimitLine"] > button { /* allow tap on "See more" */
+div[class*="DivMultiColumnItemContainer"], /* channel videos */
+div[class*="DivShareLinks"], /* channel links */
+div[class*="DivUserName"], /* video @username */
+div[data-e2e*="play-side-author"], /* channel button */
+div[data-e2e*="play-side-share"], /* share button */
+div[data-e2e*="caption-icon"] { /* captions button */
     pointer-events: auto;
+}
+
+div[class*="DivUserName"] { /* reduce tappable region of username */
+    width: fit-content;
+}
+
+div[data-e2e*="play-side-like"] svg, /* like button */
+div[data-e2e*="play-side-comment"] svg { /* comment button */
+    opacity: 0.5;
+}
+
+article[class*="ArticleLimitLine"] > button { /* hide "See more" */
+    font-size: 0;
+}
+
+article[class*="ArticleLimitLine"] > button::before { /* but keep ellipsis */
+    font-size: initial;
 }
 
 div[class*="layout-box"] {
     padding: 0 !important; /* hide extra whitespace at bottom */
 }
 
-div[class*="DivCommentListContainer"] {
-    border-bottom: 19px solid white; /* bottom padding to fix layout */
+div[class*="DivCommentListContainer"] { /* below last comment */
+    padding-bottom: 16px;
 }
 
-/* Comments header */
-div[class*="DivHeaderWrapper"] {
-    display: block;
-    padding-top: 14px;
-    padding-left: 12px;
-    padding-bottom: 0;
+ul[class*="UlRList"] { /* above recommended videos, fallback for unavailable videos */
+    padding-top: 16px;
+}
+
+h2[class*="H2ShareDesc"] { /* channel description */
+    white-space: initial;
 }
 
 /* Revert the effects of the tux-screen-lock style */
@@ -70,3 +91,5 @@ html {
 body {
     position: relative !important;
 }
+
+/* END TIKTOK RULES */
