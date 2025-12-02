@@ -114,7 +114,7 @@ struct HowToListView: View {
             .padding(.leading, buttonInset)
             .padding(.bottom)
             
-            Text("TikTok® is a registered trademark of ByteDance Ltd. OpenClip is not affiliated with or endorsed by TikTok or ByteDance Ltd. All videos are hosted on [tiktok.com](https://www.tiktok.com).")
+            Text("TikTok® is a registered trademark of ByteDance Ltd. OpenClip is not affiliated with or endorsed by TikTok or ByteDance Ltd. All videos are provided by [tiktok.com](https://www.tiktok.com).")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
